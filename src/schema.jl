@@ -132,7 +132,7 @@ function findref(id0, idmap, path::String, parentFileDirectory::String)
       idmap[string(uri2)] = getremoteschema(uri2).data
     elseif isFileUri
       @info("loading local ref $(uri2)")
-      idmap[string(uri2)] = Schema(JSON.parsefile(uri2.path); parentFileDirectory = dirname(uri2.path)).data
+      idmap[string(uri2)] = Schema(JSON.parsefile(uri2.path); parentFileDirectory = parentFileDirectory).data
     end
   end
 
